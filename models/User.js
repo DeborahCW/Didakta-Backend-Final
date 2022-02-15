@@ -43,10 +43,10 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: [true, "This filed is required"],
-    // match: [
-    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&.])[A-Za-z\d$@$!%*?&.]{6, 20}/,
-    //   "Password must have: 1.Minimum six characters 2.At least one uppercase character 3.At least one lowercase character 4.At least one special character",
-    // ],
+  },
+  registration_date: {
+    type: Date,
+    default: Date.now,
   },
 });
 
