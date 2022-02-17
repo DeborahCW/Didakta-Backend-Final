@@ -26,7 +26,7 @@ const UserSchema = new Schema({
   },
   username: {
     type: String,
-    required: [true, "This filed is required"],
+    required: [true, "This field is required"],
     unique: [true, "Username already registered"],
     minlength: [5, "Minimum characters for this field is 5"],
     maxlength: [30, "Maximum characters for this field is 30"],
@@ -42,7 +42,7 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
-    required: [true, "This filed is required"],
+    required: [true, "This field is required"],
   },
   registration_date: {
     type: Date,
