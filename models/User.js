@@ -3,13 +3,13 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const UserSchema = new Schema({
-  first_name: {
+  first: {
     type: String,
     required: [true, "This filed is required"],
     minlength: [2, "Minimum characters for this field is 2"],
     maxlength: [30, "Maximum characters for this field is 30"],
   },
-  last_name: {
+  last: {
     type: String,
     required: [true, "This filed is required"],
     minlength: [2, "Minimum characters for this field is 2"],
@@ -44,9 +44,26 @@ const UserSchema = new Schema({
     type: String,
     required: [true, "This field is required"],
   },
-  registration_date: {
+  regDate: {
     type: Date,
     default: Date.now,
+  },
+  quizProgress: [
+    {
+      passed: Boolean,
+      quiz: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Quiz",
+      },
+    },
+  ],
+  lessonProgress: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Lesson",
+  },
+  chapterProgress: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Chapter",
   },
 });
 

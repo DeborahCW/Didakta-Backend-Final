@@ -4,40 +4,36 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const ChapterSchema = new Schema({
-  chapter_id: {
-    type: Number,
-    required: [true, "This field is required"]
+  title: {
+    type: String,
   },
-  chapter_no: {
+  number: {
     type: Number,
-    required: [true, "This field is required"]
+    required: [true, "Chapter needs  a number"],
+    min: 1,
   },
   text: {
     type: String,
-    required: [true, "This field is required"],
   },
   audio: {
-    type: String, //Gridfs ? uncertain
-  },
-  audio_link: {
     type: String,
   },
-  Table: {
-    type: Object,
-  },
-  youtube_link: {
+  table: [[String]],
+  youtube: {
     type: String,
   },
-  q_a: {
-    type: Object,
-  },
-  img_url: {
+  questions: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Questions",
+    },
+  ],
+  img: {
     type: String,
   },
-  alignment_url: {
+  alignment: {
     type: String,
   },
-  
 });
 
 module.exports = mongoose.model("Chapter", ChapterSchema);
