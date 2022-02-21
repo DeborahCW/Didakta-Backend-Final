@@ -50,7 +50,12 @@ const UserSchema = new Schema({
   },
   quizProgress: [
     {
-      passed: Boolean,
+      score: {
+        type: number,
+        min: 0,
+        max: 100,
+      },
+      points: number,
       quiz: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Quiz",
