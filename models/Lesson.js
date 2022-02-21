@@ -3,21 +3,25 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const LessonSchema = new Schema({
-    lesson_no: {
-        type: Number,
-        required: true
-        
-      },
-   chapter_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Chapter'
-    
+  title: {
+    type: String,
   },
-  quiz_id: [ {
+  number: {
+    type: Number,
+    required: [true, "Lesson needs a number"],
+    min: 1,
+    max: 100,
+  },
+  chapters: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Chapter",
+    },
+  ],
+  quiz: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Quiz'
-  }],
+    ref: "Quiz",
+  },
 });
- 
 
-module.exports = mongoose.model("Lesson", LessonSchema)
+module.exports = mongoose.model("Lesson", LessonSchema);

@@ -3,15 +3,8 @@ const bcrypt = require("bcryptjs");
 
 const registerUser = async (req, res) => {
   try {
-    const {
-      first_name,
-      last_name,
-      username,
-      email,
-      age,
-      description,
-      password,
-    } = req.body;
+    const { first, last, username, email, age, description, password } =
+      req.body;
 
     // chack if email already exists
     const emailExists = await User.findOne({ email: email });
@@ -32,7 +25,7 @@ const registerUser = async (req, res) => {
       return res
         .status(400)
         .send(
-          "Password must have: 1.Between 6 and 20 characters 2.At least one uppercase character 3.At least one lowercase character"
+          "Password must have: 1.Between 6 and 20 characters 2.At least one uppercase character 3.At least one lowercase character 4. At least one number"
         );
 
     // encrypt the password
@@ -41,8 +34,8 @@ const registerUser = async (req, res) => {
 
     // creating the user
     const user = await User.create({
-      first_name: first_name,
-      last_name: last_name,
+      first: first,
+      last: last,
       username: username,
       email: email,
       age: age,
