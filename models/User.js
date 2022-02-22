@@ -4,12 +4,14 @@ const { Schema } = mongoose;
 
 const UserSchema = new Schema({
   first: {
+    // first name
     type: String,
     required: [true, "This filed is required"],
     minlength: [2, "Minimum characters for this field is 2"],
     maxlength: [30, "Maximum characters for this field is 30"],
   },
   last: {
+    // last name
     type: String,
     required: [true, "This filed is required"],
     minlength: [2, "Minimum characters for this field is 2"],
@@ -48,20 +50,25 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+
+  // an array of objects to save scores that users get in each quiz.
+  // user.quizProgress = {quiz: ObjectId, score: n(%)}
   quizProgress: [
     {
       score: {
-        type: number,
+        type: Number,
         min: 0,
         max: 100,
       },
-      points: number,
+      points: Number,
       quiz: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Quiz",
       },
     },
   ],
+
+  // the lesson and chapter that the user lastly visited. This is to send the user back where they left off
   lessonProgress: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Lesson",

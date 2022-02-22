@@ -3,23 +3,21 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const QuizSchema = new Schema({
-  title: {
-    type: String,
-  },
+  title: String,
   number: {
     type: number,
-    required: [true, "Quiz must have a number"],
     min: 1,
   },
+  explanation: String,
+
+  // Order of the questions (ObjectIds) is NOT important. The questions is loaded in a random order in frontend anyway.
   questions: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Question",
     },
   ],
-  points: {
-    type: number,
-  },
+  points: number,
   minPassingPercentage: {
     type: number,
     min: 50,
