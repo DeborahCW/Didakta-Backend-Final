@@ -1,4 +1,5 @@
 const userAuth = require("./routes/userAuth");
+const lessonRouter = require("./routes/lessonRouter");
 const express = require("express");
 const app = express();
 const connectDB = require("./dbinit");
@@ -14,6 +15,8 @@ connectDB();
 
 app.use(express.json());
 app.use("/user", userAuth);
+app.use("/lesson", lessonRouter);
+
 app.get("/", (req, res) => {
   res.send(`Didakta is a platform for learning ancient greek language.`);
 });
