@@ -33,10 +33,10 @@ const UserSchema = new Schema({
     minlength: [5, "Minimum characters for this field is 5"],
     maxlength: [30, "Maximum characters for this field is 30"],
   },
-  age: {
-    type: Number,
-    min: 5,
-    max: 120,
+
+  // Date of Birth
+  dOB: {
+    type: Date,
   },
   description: {
     type: String,
@@ -82,6 +82,7 @@ const UserSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Chapter",
   },
+  admin: Boolean,
 });
 
 module.exports = mongoose.model("User", UserSchema);

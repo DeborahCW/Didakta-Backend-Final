@@ -9,16 +9,17 @@ const { updateOneLesson } = require("../controllers/updateLesson");
 const { updateOneChapter } = require("../controllers/updateChapter");
 const { updateOneQuiz } = require("../controllers/updateQuiz");
 const { updateOneQuestion } = require("../controllers/updateQuestion");
+const { verifyAdmin, verifyUser } = require("./userFunctions");
 
-lessonRouter.get("/", getAllLessons);
-lessonRouter.get("/:id", getOneLesson);
+lessonRouter.get("/", verifyAdmin, getAllLessons);
+lessonRouter.get("/:id", verifyUser, getOneLesson);
 lessonRouter.post("/addChapter", postOneChapter);
 lessonRouter.post("/addLesson", postOneLesson);
 lessonRouter.post("/addQuiz", postOneQuiz);
 lessonRouter.post("./addQuestion", postOneQuestion);
-lessonRouter.put("./updateLesson", updateOneLesson);
-lessonRouter.put("./updateChapter", updateOneChapter);
-lessonRouter.put("./updateQuiz", updateOneQuiz);
-lessonRouter.put("./updateQuestion", updateOneQuestion);
+lessonRouter.put("./updateLesson/:id", updateOneLesson);
+lessonRouter.put("./updateChapter/:id", updateOneChapter);
+lessonRouter.put("./updateQuiz/:id", updateOneQuiz);
+lessonRouter.put("./updateQuestion/:id", updateOneQuestion);
 
 module.exports = lessonRouter;
