@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const QuestionSchema = new Schema({
+  chapterNumber: Number,
+  quizNumber: Number,
   title: String,
   text: [String],
   table: [[String]],

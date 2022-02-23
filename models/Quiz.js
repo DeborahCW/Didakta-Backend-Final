@@ -4,8 +4,10 @@ const { Schema } = mongoose;
 
 const QuizSchema = new Schema({
   title: String,
+
+  // the lesson number to which the quiz belongs
   number: {
-    type: number,
+    type: Number,
     min: 1,
   },
   explanation: String,
@@ -17,9 +19,9 @@ const QuizSchema = new Schema({
       ref: "Question",
     },
   ],
-  points: number,
+  points: Number,
   minPassingPercentage: {
-    type: number,
+    type: Number,
     min: 50,
     max: 100,
   },

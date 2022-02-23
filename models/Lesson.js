@@ -19,6 +19,8 @@ const LessonSchema = new Schema({
     },
   ],
 
+  wordlist: [[String]],
+
   // ObjectId of the quiz related to the lesson
   quiz: {
     type: mongoose.Schema.Types.ObjectId,

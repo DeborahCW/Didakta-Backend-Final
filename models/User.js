@@ -55,7 +55,12 @@ const UserSchema = new Schema({
   // user.quizProgress = {quiz: ObjectId, score: n(%)}
   quizProgress: [
     {
-      score: {
+      firstTimeScore: {
+        type: Number,
+        min: 0,
+        max: 100,
+      },
+      seconTimeScore: {
         type: Number,
         min: 0,
         max: 100,

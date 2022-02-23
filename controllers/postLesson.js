@@ -2,13 +2,14 @@ const Lesson = require("../models/Lesson");
 
 const postOneLesson = async (req, res) => {
   try {
-    const { title, number, chapters, quiz } = req.body;
+    const { title, number, chapters, quiz, wordlist } = req.body;
 
     const lesson = await Lesson.create({
       title,
       number,
       chapters,
       quiz,
+      wordlist,
     });
     res.json({
       msg: "Lesson added",

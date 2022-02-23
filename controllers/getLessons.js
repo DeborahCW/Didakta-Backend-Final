@@ -18,7 +18,10 @@ const getAllLessons = async (req, res) => {
 const getOneLesson = async (req, res) => {
   try {
     const { id } = req.params;
-    const lesson = await Lesson.findById(id);
+    const lesson = await Lesson.findById(id).populate("chapters");
+    // .populate("chapter.questions")
+    // .populate('quiz')
+    // .populate('quiz.questions')
     res.json({
       data: lesson,
       msg: `Lesson with ID: ${id}`,
