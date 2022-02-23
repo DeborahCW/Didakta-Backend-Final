@@ -3,6 +3,7 @@ const lessonRouter = require("./routes/lessonRouter");
 const express = require("express");
 const app = express();
 const connectDB = require("./dbinit");
+const cors = require("cors");
 require("dotenv").config();
 app.use(
   express.urlencoded({
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 4000;
 connectDB();
 
 app.use(express.json());
+app.use(cors());
 app.use("/user", userAuth);
 app.use("/lesson", lessonRouter);
 
