@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
+//  Lesson schema model:
+//  title, number, chapters, wordlist, quiz
 const LessonSchema = new Schema({
   title: String,
   number: {

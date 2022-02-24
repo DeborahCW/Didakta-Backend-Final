@@ -21,6 +21,8 @@ const QuestionSchema = new Schema({
       enum: ["dropDown", "multipleChoice"],
     },
   ],
+  hint: String,
+  explanation: String,
 });
 
 module.exports = mongoose.model("Question", QuestionSchema);

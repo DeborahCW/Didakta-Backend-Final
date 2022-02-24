@@ -11,15 +11,15 @@ const { updateOneQuiz } = require("../controllers/updateQuiz");
 const { updateOneQuestion } = require("../controllers/updateQuestion");
 const { verifyAdmin, verifyUser } = require("./userFunctions");
 
-lessonRouter.get("/", verifyAdmin, getAllLessons);
+lessonRouter.get("/", verifyUser, getAllLessons);
 lessonRouter.get("/:id", verifyUser, getOneLesson);
-lessonRouter.post("/addChapter", postOneChapter);
-lessonRouter.post("/addLesson", postOneLesson);
-lessonRouter.post("/addQuiz", postOneQuiz);
-lessonRouter.post("./addQuestion", postOneQuestion);
-lessonRouter.put("./updateLesson/:id", updateOneLesson);
-lessonRouter.put("./updateChapter/:id", updateOneChapter);
-lessonRouter.put("./updateQuiz/:id", updateOneQuiz);
-lessonRouter.put("./updateQuestion/:id", updateOneQuestion);
+lessonRouter.post("/addChapter", postOneChapter); // add verifyAdmin to protect the route
+lessonRouter.post("/addLesson", postOneLesson); // add verifyAdmin to protect the route
+lessonRouter.post("/addQuiz", postOneQuiz); // add verifyAdmin to protect the route
+lessonRouter.post("/addQuestion", postOneQuestion); // add verifyAdmin to protect the route
+lessonRouter.put("/updateLesson/:id", updateOneLesson); // add verifyAdmin to protect the route
+lessonRouter.put("/updateChapter/:id", updateOneChapter); // add verifyAdmin to protect the route
+lessonRouter.put("/updateQuiz/:id", updateOneQuiz); // add verifyAdmin to protect the route
+lessonRouter.put("/updateQuestion/:id", updateOneQuestion); // add verifyAdmin to protect the route
 
 module.exports = lessonRouter;

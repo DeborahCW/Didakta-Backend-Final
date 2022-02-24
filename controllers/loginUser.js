@@ -18,8 +18,8 @@ const loginUser = async (req, res) => {
     // creating a JW Token
     const authenticationToken = jwt.sign(
       { user },
-      "Stack",
-      { expiresIn: req.body.rememberMe ? "365d" : "24h" }, // ********************************* UNCERTAIN SYNTAX !!!
+      // "Stack",
+      // { expiresIn: req.body.rememberMe ? "365d" : "24h" }, // ********************************* UNCERTAIN SYNTAX !!!
       process.env.SECRET
     );
 

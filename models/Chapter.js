@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
+// Chapter schema model:
+// title, number, lessonNumber, text, audio, audioText, table, text_1, table_1, youtube, questionText, questions, img, alignmentText, alignment, footnotes
 const ChapterSchema = new Schema({
   title: String,
   number: {
