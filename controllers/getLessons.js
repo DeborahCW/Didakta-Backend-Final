@@ -2,8 +2,9 @@ const Lesson = require("../models/Lesson");
 
 const getAllLessons = async (req, res) => {
   try {
-    const lessons = await Lesson.find().populate("chapters");
-    // .populate("chapters.questions")
+    const lessons = await Lesson.find()
+      .populate("chapters")
+      .populate("chapters.questions");
     // .populate("quiz")
     // .populate("quiz.questions");
     res.json({
@@ -18,8 +19,9 @@ const getAllLessons = async (req, res) => {
 const getOneLesson = async (req, res) => {
   try {
     const { id } = req.params;
-    const lesson = await Lesson.findById(id).populate("chapters");
-    // .populate("chapter.questions")
+    const lesson = await Lesson.findById(id)
+      .populate("chapters")
+      .populate("chapters.questions");
     // .populate('quiz')
     // .populate('quiz.questions')
     res.json({

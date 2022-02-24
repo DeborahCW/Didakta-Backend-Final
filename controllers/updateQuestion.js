@@ -5,6 +5,7 @@ const updateOneQuestion = async (req, res) => {
     const { id } = req.params;
     const {
       chapterNumber,
+      lessonNumber,
       quizNumber,
       title,
       text,
@@ -22,6 +23,7 @@ const updateOneQuestion = async (req, res) => {
       id,
       {
         chapterNumber,
+        lessonNumber,
         quizNumber,
         title,
         text,

@@ -4,6 +4,7 @@ const postOneQuestion = async (req, res) => {
   try {
     const {
       chapterNumber,
+      lessonNumber,
       quizNumber,
       title,
       text,
@@ -19,6 +20,7 @@ const postOneQuestion = async (req, res) => {
 
     const question = await Question.create({
       chapterNumber,
+      lessonNumber,
       quizNumber,
       title,
       text,

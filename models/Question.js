@@ -2,8 +2,11 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
+// Question schema model:
+// (chapterNumber & lessonNumber) || quizNumber, title, text, table, text_1, alignment, answers, correctAnswer, answers_1, correctAnswer_1, tags (dropDown, multipleChoice), hint, explanation (comes after user chooses the answer)
 const QuestionSchema = new Schema({
   chapterNumber: Number,
+  lessonNumber: Number,
   quizNumber: Number,
   title: String,
   text: [String],
