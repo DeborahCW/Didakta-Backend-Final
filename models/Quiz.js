@@ -10,7 +10,7 @@ const QuizSchema = new Schema({
     type: Number,
     min: 1,
   },
-  explanation: String,
+  text: [String],
 
   // Order of the questions (ObjectIds) is NOT important. The questions is loaded in a random order in frontend anyway.
   questions: [

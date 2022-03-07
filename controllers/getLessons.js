@@ -4,9 +4,19 @@ const getAllLessons = async (req, res) => {
   try {
     const lessons = await Lesson.find()
       .populate("chapters")
-      .populate("chapters.questions");
-    // .populate("quiz")
-    // .populate("quiz.questions");
+      .populate({
+        path: "chapters",
+        populate: {
+          path: "questions",
+        },
+      })
+      .populate("quiz")
+      .populate({
+        path: "quiz",
+        populate: {
+          path: "questions",
+        },
+      });
     res.json({
       data: lessons,
       msg: "All the lessons",
@@ -21,9 +31,19 @@ const getOneLesson = async (req, res) => {
     const { id } = req.params;
     const lesson = await Lesson.findById(id)
       .populate("chapters")
-      .populate("chapters.questions");
-    // .populate('quiz')
-    // .populate('quiz.questions')
+      .populate({
+        path: "chapters",
+        populate: {
+          path: "questions",
+        },
+      });
+    // .populate("quiz")
+    // .populate({
+    //   path: "quiz",
+    //   populate: {
+    //     path: "questions",
+    //   },
+    // });
     res.json({
       data: lesson,
       msg: `Lesson with ID: ${id}`,

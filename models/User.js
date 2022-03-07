@@ -28,20 +28,20 @@ const UserSchema = new Schema({
   },
   username: {
     type: String,
-    required: [true, "This field is required"],
+    required: true,
     unique: [true, "Username already registered"],
     minlength: [5, "Minimum characters for this field is 5"],
-    maxlength: [30, "Maximum characters for this field is 30"],
+    maxlength: [50, "Maximum characters for this field is 30"],
   },
 
   // Date of Birth
-  dOB: {
-    type: Date,
-  },
-  description: {
-    type: String,
-    maxlength: [250, "Maximum characters for this field is 250"],
-  },
+  // dOB: {
+  //   type: Date,
+  // },
+  // description: {
+  //   type: String,
+  //   maxlength: [250, "Maximum characters for this field is 250"],
+  // },
   password: {
     type: String,
     required: [true, "This field is required"],
@@ -60,7 +60,7 @@ const UserSchema = new Schema({
         min: 0,
         max: 100,
       },
-      seconTimeScore: {
+      secondTimeScore: {
         type: Number,
         min: 0,
         max: 100,

@@ -11,7 +11,7 @@ const QuestionSchema = new Schema({
   title: String,
   text: [String],
   table: [[String]],
-  text_1: String,
+  text_1: [String],
   alignment: String,
   answers: [String],
   correctAnswer: Number,

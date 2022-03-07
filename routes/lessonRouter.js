@@ -9,10 +9,10 @@ const { updateOneLesson } = require("../controllers/updateLesson");
 const { updateOneChapter } = require("../controllers/updateChapter");
 const { updateOneQuiz } = require("../controllers/updateQuiz");
 const { updateOneQuestion } = require("../controllers/updateQuestion");
-const { verifyAdmin, verifyUser } = require("./userFunctions");
+const { verifyAdmin, verifyUser } = require("./userMiddlewares");
 
-lessonRouter.get("/", verifyUser, getAllLessons);
-lessonRouter.get("/:id", verifyUser, getOneLesson);
+lessonRouter.get("/", getAllLessons); // add verifyUser
+lessonRouter.get("/:id", getOneLesson); // add verifyUser
 lessonRouter.post("/addChapter", postOneChapter); // add verifyAdmin to protect the route
 lessonRouter.post("/addLesson", postOneLesson); // add verifyAdmin to protect the route
 lessonRouter.post("/addQuiz", postOneQuiz); // add verifyAdmin to protect the route
