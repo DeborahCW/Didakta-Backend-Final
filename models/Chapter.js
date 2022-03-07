@@ -25,7 +25,7 @@ const ChapterSchema = new Schema({
   questions: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Questions",
+      ref: "Question",
     },
   ],
   img: String,

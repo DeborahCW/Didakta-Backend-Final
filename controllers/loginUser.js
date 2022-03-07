@@ -28,6 +28,7 @@ const loginUser = async (req, res) => {
 
     // sending the token to the frontend in case if we want to show userdata to the user. e.g. Welcome <user_name>!
     res.json({
+      data: user,
       msg: "Successfully logged in",
       token: authenticationToken,
     });

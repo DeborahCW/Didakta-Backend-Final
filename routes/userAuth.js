@@ -8,9 +8,9 @@ const {
   verifyAdmin,
   verifyUser,
   verifyNotLoggedIn,
-} = require("./userFunctions");
+} = require("./userMiddlewares");
 
-userAuth.get("/", verifyAdmin, getAllUsers);
+userAuth.get("/", getAllUsers); // add verifyAdmin() to protect the route
 userAuth.get("/:id", verifyUser, getOneUser);
 userAuth.post("/register", verifyNotLoggedIn, registerUser);
 userAuth.post("/login", verifyNotLoggedIn, loginUser);

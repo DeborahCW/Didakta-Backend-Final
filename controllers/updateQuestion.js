@@ -17,6 +17,8 @@ const updateOneQuestion = async (req, res) => {
       answers_1,
       correctAnswer_1,
       tags,
+      hint,
+      explanation,
     } = req.body;
 
     const question = await Question.findByIdAndUpdate(
@@ -35,6 +37,8 @@ const updateOneQuestion = async (req, res) => {
         answers_1,
         correctAnswer_1,
         tags,
+        hint,
+        explanation,
       },
       { new: true }
     );
